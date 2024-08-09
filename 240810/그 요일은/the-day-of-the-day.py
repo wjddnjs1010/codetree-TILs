@@ -16,7 +16,7 @@ def count_specific_weekday(m1, d1, m2, d2, target_weekday):
     end_day_count = date_to_days(m2, d2)
     
     # 시작 요일 계산 (2024년 1월 1일은 월요일)
-    start_weekday_index = (start_day_count) % 7
+    start_weekday_index = (start_day_count - 1) % 7
     
     # 특정 요일 등장 횟수 계산
     count = 0
@@ -24,7 +24,6 @@ def count_specific_weekday(m1, d1, m2, d2, target_weekday):
         if (start_weekday_index % 7) == target_index:
             count += 1
         start_weekday_index += 1
-    
     
     return count
 
