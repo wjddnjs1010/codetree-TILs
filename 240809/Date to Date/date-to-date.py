@@ -9,4 +9,5 @@ first +=d1
 for i in range(m2):
     last +=m[i]
 last +=d2
-print(last-first)
+
+print(last-first if last!=first else 1)
