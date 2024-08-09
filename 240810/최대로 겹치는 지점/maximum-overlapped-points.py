@@ -1,5 +1,5 @@
 n = int(input())
-blocks = [0]*100
+blocks = [0]*101
 for i in range(n):
     x1,x2 = tuple(map(int,input().split()))
     for j in range(x1,x2+1):
