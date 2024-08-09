@@ -19,13 +19,11 @@ def count_specific_weekday(m1, d1, m2, d2, target_weekday):
     start_weekday_index = (start_day_count - 1) % 7
     
     # 특정 요일 등장 횟수 계산
-    count = 0
+    count = 1
     for day in range(start_day_count, end_day_count + 1):
         if (start_weekday_index % 7) == target_index:
             count += 1
         start_weekday_index += 1
-    if start_day_count-end_day_count ==0 and target_index ==0:
-        count = 1
     return count
 
 # 사용자로부터 입력 받기
