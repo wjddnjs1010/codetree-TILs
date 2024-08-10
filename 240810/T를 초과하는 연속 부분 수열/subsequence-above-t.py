@@ -1,5 +1,6 @@
 n,t = tuple(map(int,input().split()))
 max_count = -1
+count = 0
 arr = list(map(int,input().split()))
 
 for i in range(n):
