@@ -18,7 +18,7 @@ def calculate_min_cover_area(x1_1, y1_1, x2_1, y2_1, x1_2, y1_2, x2_2, y2_2):
     min_y = 2001
     max_y = -1
     
-    for i in range(2001)
+    for i in range(2001):
         for j in range(2001):
             if plane[i][j] == 1:
                 min_x = min(min_x, i)
