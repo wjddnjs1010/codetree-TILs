@@ -22,7 +22,7 @@ for j in range(T):
         if sh[shs[j].x-1]<=K:
             gam[shs[j].y-1]+=1
 
-    elif gam[shs[j].y-1]>0:
+    if gam[shs[j].y-1]>0:
         sh[shs[j].y-1]+=1
         if sh[shs[j].y-1]<=K:
             gam[shs[j].x-1]+=1
