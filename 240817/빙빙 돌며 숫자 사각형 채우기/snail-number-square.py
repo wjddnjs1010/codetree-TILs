@@ -24,7 +24,7 @@ for i in range(2,n*m+1):
     x,y = x_nxt,y_nxt
 
 
-for i in range(m):
-    for j in range(n):
+for i in range(n):
+    for j in range(m):
         print(answer[i][j], end = ' ')
     print()
