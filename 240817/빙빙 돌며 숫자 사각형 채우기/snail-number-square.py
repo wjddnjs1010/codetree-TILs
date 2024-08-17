@@ -1,7 +1,7 @@
 n,m = tuple(map(int,input().split()))
 answer = [
-    [0] * n
-    for _ in range(m)
+    [0] * m
+    for _ in range(n)
 ]
 answer[0][0] = 1
 
