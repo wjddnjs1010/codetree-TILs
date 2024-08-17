@@ -1,38 +1,28 @@
 N, K, P, T = map(int, input().split())
 
-sh = [0] * N
-gam = [0] * N
-gam[P-1] = 1  # Assuming P is within [1, N]
-shs = []
+sh = [0] * N  # 각 개발자의 악수 횟수를 추적
+gam = [0] * N  # 각 개발자의 감염 상태를 추적
+gam[P-1] = 1  # 최초 감염자 설정
 
-class dev:
-    def __init__(self, t, x, y):
-        self.t = t
-        self.x = x
-        self.y = y
+handshakes = []
 
-for i in range(T):
+# 악수 정보 입력
+for _ in range(T):
     t, x, y = map(int, input().split())
     if 1 <= x <= N and 1 <= y <= N:
-        shs.append(dev(t, x, y))
+        handshakes.append((t, x-1, y-1))  # 0-based 인덱스로 저장
 
-shs.sort(key=lambda dev: dev.t)
+# 시간 순서대로 악수 처리
+handshakes.sort()
 
-for j in range(T):
-    if 1 <= shs[j].x <= N and 1 <= shs[j].y <= N:
-        if gam[shs[j].x-1] > 0:
-            sh[shs[j].x-1] += 1
-            if sh[shs[j].x-1] <= K:
-                gam[shs[j].y-1] += 1
+for _, x, y in handshakes:
+    if gam[x] > 0 and sh[x] < K:  # x가 전염 가능하다면
+        sh[x] += 1
+        gam[y] += 1
 
-        if gam[shs[j].y-1] > 0:
-            sh[shs[j].y-1] += 1
-            if sh[shs[j].y-1] <= K:
-                gam[shs[j].x-1] += 1
+    if gam[y] > 0 and sh[y] < K:  # y가 전염 가능하다면
+        sh[y] += 1
+        gam[x] += 1
 
-out = [0] * N
-for i in range(N):
-    if gam[i] > 0:
-        out[i] = 1
-
-print(''.join(map(str, out)))
+# 결과 출력
+print(''.join(map(str, [1 if g > 0 else 0 for g in gam])))
