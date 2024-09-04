@@ -5,7 +5,7 @@ arr_max = 0
 for i in range(n):
     arr_cur = 0
     for j in range(i,i+k):
-        if i+k<n:
+        if i+k<n+1:
             arr_cur += arr[j]
             arr_max = max(arr_max, arr_cur)
 
