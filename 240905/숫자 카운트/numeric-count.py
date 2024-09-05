@@ -9,8 +9,11 @@ def count_matches(a, b):
     for i in range(3):
         if a[i] == b[i]:
             count1 += 1
-        elif b[i] in a:
+
+    for i in range(3):
+        if b[i] in a and a[i]!=b[i]:
             count2 += 1
+            break
     
     return count1, count2
 
@@ -43,7 +46,7 @@ for i in range(123, 988):  # 123부터 987까지 가능한 세 자리 수
         # 주어진 카운트 정보와 실제 카운트가 일치하지 않으면 후보에서 제외
         if actual_count1 != expected_count1 or actual_count2 != expected_count2:
             is_possible = False
-            continue
+            False
     
     if is_possible:
         possible_count += 1
