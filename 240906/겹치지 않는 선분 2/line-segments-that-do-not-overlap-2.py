@@ -1,8 +1,9 @@
 N = int(input())
 segments = [tuple(map(int, input().split())) for _ in range(N)]
 
-def is_overlapping(seg1, seg2):
-    return not (seg1[1] <= seg2[0] or seg2[1] <= seg1[0])
+def is_overlapping(s1, s2):
+    # s1, s2가 겹치는지 확인하는 함수
+    return not (s1[1] < s2[0] or s2[1] < s1[0])
 
 non_overlapping_count = 0
 
