@@ -13,13 +13,13 @@ lines = [
     board[0][2] + board[1][1] + board[2][0]   # 대각선 2
 ]
 
-team_wins = 0  # 팀이 이긴 경우의 수
+team_wins = set()  # 중복된 팀 승리를 제거하기 위한 집합
 
 # 각 줄에 대해 팀으로 이길 수 있는지 확인
 for line in lines:
     unique_digits = set(line)  # 한 줄의 숫자를 집합으로 변환하여 중복을 제거
     if len(unique_digits) == 2:  # 서로 다른 숫자가 2개일 때 팀 승리 가능
-        team_wins += 1
+        team_wins.add(frozenset(unique_digits))  # 팀 구성을 집합에 추가 (중복 제거를 위해 frozenset 사용)
 
 # 결과 출력
-print(team_wins)
+print(len(team_wins))
